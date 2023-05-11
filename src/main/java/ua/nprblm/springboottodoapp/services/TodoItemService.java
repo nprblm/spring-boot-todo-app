@@ -5,7 +5,8 @@ import org.springframework.stereotype.Service;
 import ua.nprblm.springboottodoapp.models.TodoItem;
 import ua.nprblm.springboottodoapp.repositories.TodoItemRepository;
 
-import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Service
@@ -23,10 +24,11 @@ public class TodoItemService {
     }
 
     public TodoItem save(TodoItem todoItem) {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         if (todoItem.getId() == null) {
-            todoItem.setCreatedAt(Instant.now());
+            todoItem.setCreatedAt(dtf.format(LocalDateTime.now()));
         }
-        todoItem.setUpdatedAt(Instant.now());
+        todoItem.setUpdatedAt(dtf.format(LocalDateTime.now()));
         return todoItemRepository.save(todoItem);
     }
 
