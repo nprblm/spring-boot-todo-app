@@ -1186,3 +1186,15 @@ update todo_items set created_at=?, description=?, is_complete=?, updated_at=? w
 2023-05-16 13:53:14 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'Lorem ipsum dadipiscing elitorire aenean         a dapibus magna, ac interdum n... (382)"; SQL statement:
 update todo_items set created_at=?, description=?, is_complete=?, updated_at=? where id=? [22001-214]
+2023-05-16 17:14:56 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa... (264)"; SQL statement:
+update todo_items set created_at=?, description=?, is_complete=?, updated_at=? where id=? [22001-214]
+2023-05-16 17:15:02 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'aaaaaaaaa aaaaaaaaa aaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa a... (262)"; SQL statement:
+update todo_items set created_at=?, description=?, is_complete=?, updated_at=? where id=? [22001-214]
+2023-05-16 17:15:10 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'aaaaaaaaa aaaaaaaaa a aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaaaa aaaaaaa... (256)"; SQL statement:
+update todo_items set created_at=?, description=?, is_complete=?, updated_at=? where id=? [22001-214]
+2023-05-16 20:16:25 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa... (256)"; SQL statement:
+insert into todo_items (created_at, description, is_complete, updated_at, id) values (?, ?, ?, ?, ?) [22001-214]
