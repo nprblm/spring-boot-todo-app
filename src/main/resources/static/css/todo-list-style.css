@@ -1,0 +1,194 @@
+html {
+    height: 100%;
+    font-size: 16px;
+    font-family: "Josefin Sans";
+}
+
+body {
+    width: 100%;
+    display: block;
+    min-height: 100%;
+}
+
+header {
+    width: 100%;
+    height: 80px;
+    background-color: #000000;
+}
+
+.header-block {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+}
+
+header h1 {
+    width: 96%;
+    color: #F4F4F6;
+    font: 2.2em "Josefin Sans", bold;
+}
+
+body {
+    background-color: #F4F4F6;
+    height: 100%;
+}
+
+article {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100% - 160px);
+}
+
+.main_class {
+    width: 90%;
+}
+
+@media screen and (min-width: 1300px) {
+    .cards {
+        width: min(100rem, 100%);
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(4, 25%);
+        padding: 20px;
+    }
+}
+
+.card {
+    box-sizing: border-box;
+    min-height: 26rem;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-content{
+    width: calc(100% - 1.5%);
+    margin-bottom: 1.5%;
+    height: 100%;
+    background-color: #000000;
+    border-radius: 4%;
+    padding: 8%;
+    display: flex;
+    flex-direction: column;
+    color: #F4F4F6;
+    box-shadow: 0px 0px 30px 0px #000000;
+}
+
+#link{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-content:hover {
+    transform: scale(1.02);
+    transition: box-shadow 0.5s, transform 0.5s;
+    box-shadow: 0px 0px 34px 4px #000000;
+}
+
+#card-description {
+    text-align: center;
+    width: 100%;
+    height: 18rem;
+    font-size: 1.2rem;
+}
+
+#card-time {
+    text-align: right;
+    vertical-align: bottom;
+    height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+}
+
+#card-time h1 {
+    margin: 0 4px;
+}
+
+.icon {
+    margin: 0 4px;
+    width: 1rem;
+    background-color: transparent;
+}
+
+#add-img {
+    width: 5rem;
+    height: 5rem;
+    visibility: visible;
+}
+
+#add-img:hover {
+    transform: scale(1.04);
+    transition: box-shadow 0.5s, transform 0.5s;
+}
+
+#buttons-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5px;
+}
+
+#button-edit, #button-delete {
+    color: black;
+    padding: 10px 25px;
+    border-radius: 9px;
+    background: #F4F4F6;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.4s;
+    margin: 5px;
+}
+
+#button-edit:hover {
+    transform: scale(0.98);
+    box-shadow: 0px 0px 30px 0px #32CD32;
+    background-color: #32CD32;
+}
+
+#button-delete:hover {
+    transform: scale(0.98);
+    box-shadow: 0px 0px 30px 0px #DC143C;
+    background-color: #DC143C;
+}
+
+#button-edit:active {
+    transform: scale(0.97);
+    box-shadow: 7px 5px 56px -10px #C3D900;
+}
+
+#button-delete:active {
+    transform: scale(0.97);
+    box-shadow: 7px 5px 56px -10px #C3D900;
+}
+
+#button-delete:active, #button-delete:hover,
+#button-edit:hover, #button-edit:active {
+    transition: box-shadow 0.3s, transform 0.3s;
+}
+
+footer {
+    width: 100%;
+    height: 80px;
+    background-color: #000000;
+}
+
+@media screen and (min-width: 600px) and (max-width: 1300px) {
+    .cards {
+        width: min(100rem, 100%);
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 33.333%);
+        padding: 20px;
+    }
+}
+

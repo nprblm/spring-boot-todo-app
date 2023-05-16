@@ -1,53 +1,61 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/5.2.2/css/bootstrap.min.css}"/>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{/css/reset.css}">
+    <link rel="stylesheet" href="../static/css/todo-list-style.css" th:href="@{/css/todo-list-style.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400&display=swap" rel="stylesheet">
+    <title>ToDo List</title>
 </head>
 <body>
-<div class="container">
-    <h1>Spring boot ToDoApp</h1>
-    <hr/>
-
-    <table class="table table-bordered table-stripped">
-        <thread>
-            <tr>
-                <th>Actions</th>
-                <th>Id</th>
-                <th>Description</th>
-                <th>IsComplete</th>
-                <th>CreatedAt</th>
-                <th>UpdatedAt</th>
-            </tr>
-        </thread>
-        <tbody>
-        <tr th:each="item : ${todoItems}" th:class="${item.isComplete} ? 'alert alert-success' : 'alert alert-warning'">
-            <td>
-                <div class="btn btn-group-sm" role="group">
-                    <a class="btn btn-info" th:href="@{/edit/{id}(id=${item.id})}">
-                        <i class="bi bi-pencil-fill"></i> Edit</a>
-                    <a class="btn btn-danger" th:href="@{/delete/{id}(id=${item.id})}">
-                        <i class="bi bi-trash-fill"></i> Delete</a>
+<header>
+    <div class="header-block">
+        <h1>TODO List</h1>
+    </div>
+</header>
+<article>
+    <div class="main_class">
+        <section class="cards">
+            <article class="card" id="add-card">
+                <div class="card-content" style="justify-content: center; align-items: center;">
+                    <a id="link" th:href="@{/create-todo}">
+                        <img id="add-img" src="/static/img/add.png" th:src="@{/img/add.png}">
+                    </a>
                 </div>
-            </td>
-            <td th:text="${item.id}"></td>
-            <td th:text="${item.description}"></td>
-            <td>
-                <span th:if="${item.isComplete} == true" th:text="Yes" />
-                <span th:unless="${item.isComplete} == true" th:text="No" />
-            </td>
-            <td th:text="${item.createdAt}"></td>
-            <td th:text="${item.updatedAt}"></td>
-        </tr>
-        </tbody>
-    </table>
-    <p><a class="btn btn-outline-success" href="/create-todo">
-        <i class="bi bi-plus-square-fill"></i> Create a Todo</a>
-    </p>
-</div>
-<script th:src="@{/webjars/bootstrap/5.2.2/js/bootstrap.min.js}"></script>
+            </article>
+            <article class="card" th:each="item : ${todoItems}">
+                <div class="card-content">
+                    <div id="card-description">
+                        <h1 th:text="${item.description}">Description</h1>
+                    </div>
+                    <div id="card-time">
+                        <h1 th:text="${item.updatedAt}">Time</h1>
+                        <img class="icon" th:src="@{/img/edit-icon.png}"
+                             th:style="(${item.createdAt} == ${item.updatedAt}) ? 'visibility : hidden;':'visibility: visible;'"/>
+                        <img class="icon" th:if="${item.isComplete} == true" th:src="@{/img/true.png}"/>
+                        <img class="icon" th:unless="${item.isComplete} == true" th:src="@{/img/false.png}"/>
+                    </div>
+                    <div id="buttons-box">
+                        <a th:href="@{/edit/{id}(id=${item.id})}">
+                            <button id="button-edit"><strong>Edit</strong></button>
+                        </a>
+                        <a th:href="@{/delete/{id}(id=${item.id})}">
+                            <button id="button-delete"><strong>Delete</strong></button>
+                        </a>
+                    </div>
+                </div>
+                </a>
+            </article>
+        </section>
+
+    </div>
+</article>
+
+<footer>
+
+</footer>
+
 </body>
 </html>
-
