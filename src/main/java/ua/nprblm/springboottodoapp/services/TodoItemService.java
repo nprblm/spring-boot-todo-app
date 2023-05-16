@@ -12,4 +12,6 @@ public interface TodoItemService {
     TodoItem save(TodoItem todoItem);
 
     void delete(TodoItem todoItem);
+
+    Object getAllReversed();
 }

@@ -1,6 +1,7 @@
 package ua.nprblm.springboottodoapp.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import ua.nprblm.springboottodoapp.models.TodoItem;
 import ua.nprblm.springboottodoapp.repositories.TodoItemRepository;
@@ -35,4 +36,10 @@ public class TodoItemServiceImpl implements TodoItemService {
     public void delete(TodoItem todoItem) {
         todoItemRepository.delete(todoItem);
     }
+
+    @Override
+    public Object getAllReversed() {
+        return todoItemRepository.findAll(Sort.by(Sort.Direction.DESC, "updatedAt"));
+    }
+
 }
