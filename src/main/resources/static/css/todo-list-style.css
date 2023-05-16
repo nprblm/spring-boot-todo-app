@@ -1,7 +1,7 @@
 html {
     height: 100%;
     font-size: 16px;
-    font-family: "Josefin Sans";
+    font-family: "Josefin Sans", serif;
 }
 
 body {
@@ -44,6 +44,8 @@ article {
 
 .main_class {
     width: 90%;
+    display: flex;
+    justify-content: center;
 }
 
 @media screen and (min-width: 1300px) {
@@ -52,6 +54,16 @@ article {
         height: 100%;
         display: grid;
         grid-template-columns: repeat(4, 25%);
+        padding: 20px;
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 1300px) {
+    .cards {
+        width: min(100rem, 100%);
+        height: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, 33.333%);
         padding: 20px;
     }
 }
@@ -65,7 +77,17 @@ article {
     align-items: center;
 }
 
-.card-content{
+.new-card {
+    box-sizing: border-box;
+    min-height: 26rem;
+    width: min(24%, 20rem);
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card-content {
     width: calc(100% - 1.5%);
     margin-bottom: 1.5%;
     height: 100%;
@@ -75,10 +97,10 @@ article {
     display: flex;
     flex-direction: column;
     color: #F4F4F6;
-    box-shadow: 0px 0px 30px 0px #000000;
+    box-shadow: 0 0 30px 0 #000000;
 }
 
-#link{
+#link {
     width: 100%;
     height: 100%;
     display: flex;
@@ -89,7 +111,7 @@ article {
 .card-content:hover {
     transform: scale(1.02);
     transition: box-shadow 0.5s, transform 0.5s;
-    box-shadow: 0px 0px 34px 4px #000000;
+    box-shadow: 0 0 34px 4px #000000;
 }
 
 #card-description {
@@ -97,10 +119,15 @@ article {
     width: 100%;
     height: 18rem;
     font-size: 1.2rem;
+    margin-top: 10px;
+}
+
+#description {
+    overflow-wrap: break-word;
 }
 
 #card-time {
-    text-align: right;
+    text-align: center;
     vertical-align: bottom;
     height: 10%;
     width: 100%;
@@ -111,6 +138,7 @@ article {
 
 #card-time h1 {
     margin: 0 4px;
+    width: 60%;
 }
 
 .icon {
@@ -137,7 +165,7 @@ article {
     padding: 0 5px;
 }
 
-#button-edit, #button-delete {
+#button-green, #button-red {
     color: black;
     padding: 10px 25px;
     border-radius: 9px;
@@ -147,48 +175,121 @@ article {
     cursor: pointer;
     transition: 0.4s;
     margin: 5px;
+
 }
 
-#button-edit:hover {
+#button-green:hover {
     transform: scale(0.98);
-    box-shadow: 0px 0px 30px 0px #32CD32;
+    box-shadow: 0 0 30px 0 #32CD32;
     background-color: #32CD32;
 }
 
-#button-delete:hover {
+#button-red:hover {
     transform: scale(0.98);
-    box-shadow: 0px 0px 30px 0px #DC143C;
+    box-shadow: 0 0 30px 0 #DC143C;
     background-color: #DC143C;
 }
 
-#button-edit:active {
+#button-green:active {
     transform: scale(0.97);
     box-shadow: 7px 5px 56px -10px #C3D900;
 }
 
-#button-delete:active {
+#button-red:active {
     transform: scale(0.97);
     box-shadow: 7px 5px 56px -10px #C3D900;
 }
 
-#button-delete:active, #button-delete:hover,
-#button-edit:hover, #button-edit:active {
+#button-red:active, #button-red:hover,
+#button-green:hover, #button-green:active {
     transition: box-shadow 0.3s, transform 0.3s;
+}
+
+.form-group {
+    width: 100%;
+    height: 100%;
+}
+
+.form-control {
+    width: 100%;
+    height: 80%;
+    padding: 10px;
+    border-radius: 0.3rem;
+    border: 1px solid #F4F4F6;
+    resize: none;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: justify;
+    text-align-last: center;
 }
 
 footer {
     width: 100%;
     height: 80px;
     background-color: #000000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
-@media screen and (min-width: 600px) and (max-width: 1300px) {
-    .cards {
-        width: min(100rem, 100%);
-        height: 100%;
-        display: grid;
-        grid-template-columns: repeat(3, 33.333%);
-        padding: 20px;
-    }
+.footer-icons-main {
+    height: 60px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#footer-items {
+}
+
+.footer-img {
+    margin: 15px 10px;
+    width: 30px;
+    border-radius: 50%;
+}
+
+.footer-img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 16px 0 #F4F4F6;
+    cursor: pointer;
+}
+
+.footer-text {
+    height: 20px;
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#footer-bottom-text {
+    color: #F4F4F6;
+    font-size: 0.8rem;
+}
+
+#cbx{
+    accent-color: #32CD32;
+}
+
+.container {
+    width: 100%;
+    height: 18px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: bottom;
+}
+
+.form-check-label {
+    width: calc(100% - 18px);
+}
+
+.form-check-label {
+    margin-left: 10px;
 }
 
