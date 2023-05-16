@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="../static/css/todo-list-style.css" th:href="@{/css/todo-list-style.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400&display=swap" rel="stylesheet">
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext" rel="stylesheet">
     <title>ToDo List</title>
 </head>
 <body>
@@ -28,25 +28,24 @@
             <article class="card" th:each="item : ${todoItems}">
                 <div class="card-content">
                     <div id="card-description">
-                        <h1 th:text="${item.description}">Description</h1>
+                        <h1 id="description" th:text="${item.description}">Description</h1>
                     </div>
                     <div id="card-time">
                         <h1 th:text="${item.updatedAt}">Time</h1>
-                        <img class="icon" th:src="@{/img/edit-icon.png}"
+                        <img class="icon" src="/img/edit-icon.png" th:src="@{/img/edit-icon.png}"
                              th:style="(${item.createdAt} == ${item.updatedAt}) ? 'visibility : hidden;':'visibility: visible;'"/>
-                        <img class="icon" th:if="${item.isComplete} == true" th:src="@{/img/true.png}"/>
-                        <img class="icon" th:unless="${item.isComplete} == true" th:src="@{/img/false.png}"/>
+                        <img class="icon" src="/img/true.png" th:if="${item.isComplete} == true" th:src="@{/img/true.png}"/>
+                        <img class="icon" src="/img/false.png" th:unless="${item.isComplete} == true" th:src="@{/img/false.png}"/>
                     </div>
                     <div id="buttons-box">
                         <a th:href="@{/edit/{id}(id=${item.id})}">
-                            <button id="button-edit"><strong>Edit</strong></button>
+                            <button id="button-green"><strong>Edit</strong></button>
                         </a>
                         <a th:href="@{/delete/{id}(id=${item.id})}">
-                            <button id="button-delete"><strong>Delete</strong></button>
+                            <button id="button-red"><strong>Delete</strong></button>
                         </a>
                     </div>
                 </div>
-                </a>
             </article>
         </section>
 
@@ -54,7 +53,25 @@
 </article>
 
 <footer>
+<div class="footer-icons-main">
+    <div id="footer-items">
+        <a href="https://t.me/vitalik_bella">
+            <img class="footer-img" id="tg" src="/static/img/telegram.png" th:src="@{/img/telegram.png}">
 
+        </a>
+        <a href="https://github.com/nprblm">
+            <img class="footer-img" id="git" src="/static/img/github.png" th:src="@{/img/github.png}">
+
+        </a>
+        <a href="https://www.linkedin.com/in/vitalii-bella-526849230/">
+            <img class="footer-img" id="li" src="/static/img/linkedin.png" th:src="@{/img/linkedin.png}">
+
+        </a>
+    </div>
+</div>
+    <div class="footer-text">
+        <h1 id="footer-bottom-text">©TODO list 2023</h1>
+    </div>
 </footer>
 
 </body>
