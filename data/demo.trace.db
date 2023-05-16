@@ -1174,3 +1174,15 @@ Caused by: java.lang.NumberFormatException: For input string: "2023/0"
 2023-05-11 22:04:41 jdbc[3]: exception
 org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "TODO_ITEMS" not found (this database is empty); SQL statement:
 insert into todo_items (created_at, description, is_complete, updated_at, id) values (?, ?, ?, ?, ?) [42104-214]
+2023-05-16 13:52:20 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'Lorem ipsum dolor sit amet,         consectetur adipiscing elitorire aenean    ... (437)"; SQL statement:
+update todo_items set created_at=?, description=?, is_complete=?, updated_at=? where id=? [22001-214]
+2023-05-16 13:53:06 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'Lorem ipsum dolor sit amet,         consectetur adipiscing elitorire aenean    ... (417)"; SQL statement:
+update todo_items set created_at=?, description=?, is_complete=?, updated_at=? where id=? [22001-214]
+2023-05-16 13:53:11 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'Lorem ipsum dolor sit ametetur adipiscing elitorire aenean         a dapibus ma... (400)"; SQL statement:
+update todo_items set created_at=?, description=?, is_complete=?, updated_at=? where id=? [22001-214]
+2023-05-16 13:53:14 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLDataException: Value too long for column "DESCRIPTION CHARACTER VARYING(255)": "'Lorem ipsum dadipiscing elitorire aenean         a dapibus magna, ac interdum n... (382)"; SQL statement:
+update todo_items set created_at=?, description=?, is_complete=?, updated_at=? where id=? [22001-214]
