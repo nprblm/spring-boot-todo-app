@@ -38,7 +38,7 @@ public class TodoItemServiceImpl implements TodoItemService {
     }
 
     @Override
-    public Object getAllReversed() {
+    public Iterable<TodoItem> getAllReversed() {
         return todoItemRepository.findAll(Sort.by(Sort.Direction.DESC, "createdAt"));
     }
 
