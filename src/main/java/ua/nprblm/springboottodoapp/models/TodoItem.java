@@ -4,11 +4,13 @@ import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import java.io.Serializable;
 
 @Getter
 @Setter
+@ToString(includeFieldNames=true)
 @Entity
 @Table(name = "todo_items")
 public class TodoItem implements Serializable {
@@ -24,11 +26,5 @@ public class TodoItem implements Serializable {
     private String createdAt;
 
     private String updatedAt;
-
-    @Override
-    public String toString() {
-        return String.format("TodoItem{id=%d, description='%s', isComplete='%s', createdAt='%s', updatedAt='%s'}",
-                id, description, isComplete, createdAt, updatedAt);
-    }
 
 }
