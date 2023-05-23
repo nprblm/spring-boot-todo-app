@@ -24,12 +24,6 @@ public class TodoFormController {
 
     @PostMapping("/todo")
     public String createTodoItem(@Valid TodoItem todoItem, BindingResult result, Model model) {
-
-        TodoItem item = todoItem;
-
-        item.setDescription(todoItem.getDescription());
-        item.setIsComplete(todoItem.getIsComplete());
-
         todoItemService.save(todoItem);
         return "redirect:/";
     }
