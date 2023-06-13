@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
+    <title>TODO List</title>
     <link rel="stylesheet" type="text/css" href="/static/css/reset.css">
     <link rel="stylesheet" type="text/css" href="/static/css/todo-list-style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -9,71 +10,59 @@
     <link href="http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext" rel="stylesheet">
     <title>ToDo List</title>
 </head>
+
 <body>
-<header>
-    <div class="header-block">
-        <h1>TODO List</h1>
-    </div>
+
+<header id="header">
+    <h1 id="header_logo">TODO List</h1>
 </header>
-<article>
-    <div class="main_class">
-        <section class="cards">
-            <article class="card" id="add-card">
-                <div class="card-content" style="justify-content: center; align-items: center;">
-                    <a id="link" th:href="@{/create-todo}">
-                        <img id="add-img" src="/img/add.png">
-                    </a>
+
+<article id="main">
+    <div class="card-box">
+        <a id="link" th:href="@{/create-todo}">
+            <div class="card">
+                <div id="add-card">
+                    <img id="add-card-img" src="/img/add.png">
                 </div>
-            </article>
-            <article class="card" th:each="item : ${todoItems}">
-                <div class="card-content">
-                    <div id="card-description">
-                        <h1 id="description" th:text="${item.description}">Description</h1>
-                    </div>
-                    <div id="card-time">
-                        <h1 th:text="${item.updatedAt}">Time</h1>
-                        <img class="icon" src="/img/edit-icon.png"
-                             th:style="(${item.createdAt} == ${item.updatedAt}) ? 'visibility : hidden;':'visibility: visible;'"/>
-                        <img class="icon" th:if="${item.isComplete} == true"
-                             src="/img/true.png"/>
-                        <img class="icon" th:unless="${item.isComplete} == true"
-                             src="/img/false.png"/>
-                    </div>
-                    <div id="buttons-box">
-                        <a th:href="@{/edit/{id}(id=${item.id})}">
-                            <button id="button-green"><strong>Edit</strong></button>
-                        </a>
-                        <a th:href="@{/delete/{id}(id=${item.id})}">
-                            <button id="button-red"><strong>Delete</strong></button>
-                        </a>
-                    </div>
-                </div>
-            </article>
-        </section>
-
-    </div>
-</article>
-
-<footer>
-    <div class="footer-icons-main">
-        <div id="footer-items">
-            <a href="https://t.me/vitalik_bella">
-                <img class="footer-img" id="tg" src="/img/telegram.png">
-
-            </a>
-            <a href="https://github.com/nprblm">
-                <img class="footer-img" id="git" src="/img/github.png">
-
-            </a>
-            <a href="https://www.linkedin.com/in/vitalii-bella-526849230/">
-                <img class="footer-img" id="li" src="/img/linkedin.png">
-
-            </a>
+            </div>
+        </a>
+        <div class="card" th:each="item : ${todoItems}">
+            <div class="card-icons">
+                <a th:href="@{/edit/{id}(id=${item.id})}">
+                    <img id="edit-img" class="card-img" src="/img/edit.png">
+                </a>
+                <a th:href="@{/delete/{id}(id=${item.id})}">
+                    <img id="delete-img" class="card-img" src="/img/delete.png">
+                </a>
+            </div>
+            <div class="description" th:text="${item.description}">
+                Description
+            </div>
+            <div class="time">
+                <h3 th:text="${item.updatedAt}">12/06/2001 18:00</h3>
+                <img id="edited-img" class="card-img" src="/img/edited-message.png"
+                     th:style="(${item.createdAt} == ${item.updatedAt}) ? 'visibility : hidden;':'visibility: visible;'">
+                <img id="true-img" class="card-img" th:if="${item.isComplete} == true" src="/img/true.png">
+                <img id="false-img" class="card-img" th:unless="${item.isComplete} == true" src="/img/false.png">
+            </div>
         </div>
     </div>
-    <div class="footer-text">
-        <h1 id="footer-bottom-text">©TODO list 2023</h1>
+</article>
+</div>
+
+<footer id="footer">
+    <div id="media-links">
+        <a href="https://t.me/vitalik_bella">
+            <img class="image-link" src="/img/telegram.png">
+        </a>
+        <a href="https://github.com/nprblm">
+            <img class="image-link" src="/img/linkedin.png">
+        </a>
+        <a href="https://www.linkedin.com/in/vitalii-bella-526849230/">
+            <img class="image-link" src="/img/github.png">
+        </a>
     </div>
+    <h3>©TODO list 2023</h3>
 </footer>
 
 </body>
