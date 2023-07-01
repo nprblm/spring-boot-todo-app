@@ -10,60 +10,47 @@
     <title>ToDo List</title>
 </head>
 <body>
-<header>
-    <div class="header-block">
-        <h1>TODO List > create</h1>
-    </div>
+<header id="header">
+    <h1 id="header_logo">TODO List > create</h1>
 </header>
 <article>
-    <div class="main_class">
-
-            <article class="new-card">
-                <form class="card-content" action="#" th:action="@{/todo}" th:object="${todoItem}" method="POST">
-                    <div class="form-group">
+    <div id="main">
+        <article class="card">
+            <form class="card-content" action="#" th:action="@{/todo}" th:object="${todoItem}" method="POST">
                         <textarea class="form-control"
-                               type="text"
-                               th:field="*{description}"
-                               id="description"
-                               placeholder="Description"
+                                  type="text"
+                                  th:field="*{description}"
+                                  id="description-field"
+                                  placeholder="Description"
                                   maxlength="254"></textarea>
-                        <div class="container">
-                            <input type="checkbox" id="cbx"
-                                   th:field="*{isComplete}"
-                                   th:checked="${isComplete} == true">
-                            <label class="form-check-label" for="cbx">Completed</label>
-                        </div>
-                        <div id="buttons-box">
-                            <button type="submit" id="button-green"><strong>Create</strong></button>
-                        </div>
-                    </div>
-
-                </form>
-            </article>
+                <div class="container">
+                    <input type="checkbox" id="cbx"
+                           th:field="*{isComplete}"
+                           th:checked="${isComplete} == true">
+                    <label class="form-check-label" for="cbx">Completed</label>
+                </div>
+                <div id="buttons-box">
+                    <button type="submit" class="button"><strong>Create</strong></button>
+                </div>
+            </form>
+        </article>
 
     </div>
 </article>
 
-<footer>
-    <div class="footer-icons-main">
-        <div id="footer-items">
-            <a href="https://t.me/vitalik_bella">
-                <img class="footer-img" id="tg" src="/img/telegram.png">
-
-            </a>
-            <a href="https://github.com/nprblm">
-                <img class="footer-img" id="git" src="/img/github.png">
-
-            </a>
-            <a href="https://www.linkedin.com/in/vitalii-bella-526849230/">
-                <img class="footer-img" id="li" src="/img/linkedin.png">
-
-            </a>
-        </div>
+<footer id="footer">
+    <div id="media-links">
+        <a href="https://t.me/vitalik_bella">
+            <img class="image-link" src="/img/telegram.png">
+        </a>
+        <a href="https://github.com/nprblm">
+            <img class="image-link" src="/img/linkedin.png">
+        </a>
+        <a href="https://www.linkedin.com/in/vitalii-bella-526849230/">
+            <img class="image-link" src="/img/github.png">
+        </a>
     </div>
-    <div class="footer-text">
-        <h1 id="footer-bottom-text">©TODO list 2023</h1>
-    </div>
+    <h3>©TODO list 2023</h3>
 </footer>
 
 </body>

@@ -12,13 +12,14 @@ html {
 }
 
 body {
-    background: url("/img/background.svg") no-repeat center center;
+    background: url("img/background.svg") no-repeat center center;
     background-size: cover;
 }
 
 #header {
     padding: 1vh 0;
     color: var(--color-black);
+    background-color: transparent;
 }
 
 #header_logo {
@@ -86,7 +87,7 @@ body {
     backdrop-filter: blur(14.7px);
     -webkit-backdrop-filter: blur(14.7px);
     border: 1px solid rgba(255, 255, 255, 0.02);
-
+    transform-origin: 0% 0;
 }
 
 .card:hover {
@@ -148,6 +149,100 @@ body {
     height: max(0.8vw, 1rem);
     width: max(0.8vw, 1rem);
 }
+
+.container {
+    width: 100%;
+    height: 18px;
+    margin: 10px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: bottom;
+}
+
+#description-field{
+    width: 100%;
+    height: 140%;
+    padding: 10px;
+    border-radius: 0.3rem;
+    resize: none;
+    box-sizing: border-box;
+    white-space: normal;
+    text-align: justify;
+    text-align-last: center;
+    background-color: transparent;
+    border: none;
+}
+
+#description-field:focus{
+    outline: none;
+}
+
+#cbx {
+    accent-color: #32CD32;
+}
+
+#buttons-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.button {
+    --color: var(--color-black);
+    padding: 0.8em 1.7em;
+    background-color: transparent;
+    border-radius: .3em;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: .5s;
+    font-weight: 400;
+    font-size: 12px;
+    border: 1px solid;
+    text-transform: uppercase;
+    color: var(--color);
+    z-index: 1;
+    margin: 0.4rem 0;
+}
+
+.button::before, .button::after {
+    content: '';
+    display: block;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    position: absolute;
+    border-radius: 50%;
+    z-index: -1;
+    background-color: var(--color);
+    transition: 1s ease;
+    --color: var(--color-green);
+}
+
+.button::before {
+    top: -1em;
+    left: -1em;
+}
+
+.button::after {
+    left: calc(100% + 1em);
+    top: calc(100% + 1em);
+}
+
+.button:hover::before, .button:hover::after {
+    height: 410px;
+    width: 410px;
+}
+
+.button:hover {
+    color: rgb(10, 25, 30);
+}
+
+.button:active {
+    filter: brightness(.8);
+}
+
 
 #footer {
     width: 100%;
