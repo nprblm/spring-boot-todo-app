@@ -1,6 +1,6 @@
-package ua.nprblm.springboottodoapp.services;
+package ua.nprblm.springboottodoapp.service;
 
-import ua.nprblm.springboottodoapp.models.TodoItem;
+import ua.nprblm.springboottodoapp.model.TodoItem;
 
 import java.util.Optional;
 

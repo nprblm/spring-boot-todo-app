@@ -1,4 +1,4 @@
-package ua.nprblm.springboottodoapp.controllers;
+package ua.nprblm.springboottodoapp.controller;
 
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,8 +8,8 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import ua.nprblm.springboottodoapp.models.TodoItem;
-import ua.nprblm.springboottodoapp.services.TodoItemService;
+import ua.nprblm.springboottodoapp.model.TodoItem;
+import ua.nprblm.springboottodoapp.service.TodoItemService;
 
 @Controller
 public class TodoFormController {

@@ -1,10 +1,10 @@
-package ua.nprblm.springboottodoapp.services;
+package ua.nprblm.springboottodoapp.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
-import ua.nprblm.springboottodoapp.models.TodoItem;
-import ua.nprblm.springboottodoapp.repositories.TodoItemRepository;
+import ua.nprblm.springboottodoapp.model.TodoItem;
+import ua.nprblm.springboottodoapp.repository.TodoItemRepository;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;

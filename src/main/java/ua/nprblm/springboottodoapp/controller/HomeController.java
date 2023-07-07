@@ -1,10 +1,10 @@
-package ua.nprblm.springboottodoapp.controllers;
+package ua.nprblm.springboottodoapp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
-import ua.nprblm.springboottodoapp.services.TodoItemService;
+import ua.nprblm.springboottodoapp.service.TodoItemService;
 
 @Controller
 public class HomeController {

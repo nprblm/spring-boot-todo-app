@@ -1,4 +1,4 @@
-package ua.nprblm.springboottodoapp.models;
+package ua.nprblm.springboottodoapp.model;
 
 import jakarta.persistence.*;
 import lombok.AccessLevel;
