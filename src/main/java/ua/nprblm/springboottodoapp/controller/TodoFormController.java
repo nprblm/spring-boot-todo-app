@@ -4,7 +4,6 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -14,22 +13,26 @@ import ua.nprblm.springboottodoapp.service.TodoItemService;
 @Controller
 public class TodoFormController {
 
+    private final TodoItemService todoItemService;
+
     @Autowired
-    private TodoItemService todoItemService;
+    public TodoFormController(TodoItemService todoItemService) {
+        this.todoItemService = todoItemService;
+    }
 
     @GetMapping("/create-todo")
-    public String showCreateForm(TodoItem todoItem) {
+    public String showCreateForm() {
         return "new-todo-item";
     }
 
     @PostMapping("/todo")
-    public String createTodoItem(@Valid TodoItem todoItem, BindingResult result, Model model) {
+    public String createTodoItem(@Valid TodoItem todoItem) {
         todoItemService.save(todoItem);
         return "redirect:/";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteTodoItem(@PathVariable("id") Long id, Model model) {
+    public String deleteTodoItem(@PathVariable("id") Long id) {
         TodoItem item = validation(id);
 
         todoItemService.delete(item);
@@ -46,7 +49,7 @@ public class TodoFormController {
     }
 
     @PostMapping("/todo/{id}")
-    public String updateTodoItem(@PathVariable("id") Long id, @Valid TodoItem todoItem, BindingResult result, Model model) {
+    public String updateTodoItem(@PathVariable("id") Long id, @Valid TodoItem todoItem) {
         TodoItem item = validation(id);
 
         item.setIsComplete(todoItem.getIsComplete());

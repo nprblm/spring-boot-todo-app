@@ -10,7 +10,7 @@ import java.io.Serializable;
 
 @Getter
 @Setter
-@ToString(includeFieldNames=true)
+@ToString
 @Entity
 @Table(name = "todo_items")
 public class TodoItem implements Serializable {

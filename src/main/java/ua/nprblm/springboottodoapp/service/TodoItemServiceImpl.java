@@ -13,24 +13,24 @@ import java.util.Optional;
 @Service
 public class TodoItemServiceImpl implements TodoItemService {
 
-    @Autowired
-    private TodoItemRepository todoItemRepository;
+    private final TodoItemRepository todoItemRepository;
 
-    public Iterable<TodoItem> getAll() {
-        return todoItemRepository.findAll();
+    @Autowired
+    public TodoItemServiceImpl(TodoItemRepository todoItemRepository) {
+        this.todoItemRepository = todoItemRepository;
     }
 
     public Optional<TodoItem> getById(Long id) {
         return todoItemRepository.findById(id);
     }
 
-    public TodoItem save(TodoItem todoItem) {
+    public void save(TodoItem todoItem) {
         DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
         if (todoItem.getId() == null) {
             todoItem.setCreatedAt(dtf.format(LocalDateTime.now()));
         }
         todoItem.setUpdatedAt(dtf.format(LocalDateTime.now()));
-        return todoItemRepository.saveAndFlush(todoItem);
+        todoItemRepository.saveAndFlush(todoItem);
     }
 
     public void delete(TodoItem todoItem) {
