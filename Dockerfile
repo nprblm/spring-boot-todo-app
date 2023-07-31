@@ -1,13 +1,17 @@
 #
 # Build stage
 #
-FROM maven:3.8.2-jdk-11 AS build
-COPY . .
+FROM maven:3.8.2-openjdk-17 AS build
+WORKDIR /app
+COPY . /app/
+RUN mvn clean package
+
 #
 # Package stage
 #
-FROM openjdk:11-jdk-slim
-COPY --from=build /out/artifacts/spring_boot_todo_app_jar/spring-boot-todo-app.jar build.jar
+FROM openjdk:17
+WORKDIR /app
+COPY --from=build /app/target/*.jar /app/app.jar
 # ENV PORT=8080
 EXPOSE 8080
-ENTRYPOINT ["java","-jar","demo.jar"]
+ENTRYPOINT ["java","-jar","app.jar"]

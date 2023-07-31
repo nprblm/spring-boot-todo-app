@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/static/css/reset.css">
+    <link rel="stylesheet" href="/static/css/todo-list-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext" rel="stylesheet">
+    <title>ToDo List</title>
+</head>
+
+<body>
+
+<header id="header">
+    <h1 id="header_logo">TODO List > edit</h1>
+</header>
+
+<article>
+    <div id="main">
+        <article class="card">
+            <form class="card-content" action="#" th:action="@{/todo/{id}(id=${todo.id})}" th:object="${todo}"
+                  method="POST">
+                <div class="form-group">
+                        <textarea class="form-control"
+                                  type="text"
+                                  th:field="*{description}"
+                                  id="description-field"
+                                  placeholder="Description"
+                                  maxlength="254"></textarea>
+                    <div class="container">
+                        <input type="checkbox" id="cbx"
+                               th:field="*{isComplete}"
+                               th:checked="${isComplete} == true">
+                        <label class="form-check-label" for="cbx">Completed</label>
+                    </div>
+                    <div id="buttons-box">
+                        <button type="submit" class="button"><strong>Edit</strong></button>
+                    </div>
+                </div>
+
+            </form>
+        </article>
+    </div>
+</article>
+
+<footer id="footer">
+    <div id="media-links">
+        <a href="https://t.me/vitalik_bella">
+            <img class="image-link" src="/img/telegram.png">
+        </a>
+        <a href="https://github.com/nprblm">
+            <img class="image-link" src="/img/linkedin.png">
+        </a>
+        <a href="https://www.linkedin.com/in/vitalii-bella-526849230/">
+            <img class="image-link" src="/img/github.png">
+        </a>
+    </div>
+    <h3>©TODO list 2023</h3>
+</footer>
+
+</body>
+</html>
