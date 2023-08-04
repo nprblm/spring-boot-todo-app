@@ -1,5 +1,6 @@
 package ua.nprblm.springboottodoapp.service;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -11,14 +12,10 @@ import java.time.format.DateTimeFormatter;
 import java.util.Optional;
 
 @Service
+@RequiredArgsConstructor
 public class TodoItemServiceImpl implements TodoItemService {
 
     private final TodoItemRepository todoItemRepository;
-
-    @Autowired
-    public TodoItemServiceImpl(TodoItemRepository todoItemRepository) {
-        this.todoItemRepository = todoItemRepository;
-    }
 
     public Optional<TodoItem> getById(Long id) {
         return todoItemRepository.findById(id);
